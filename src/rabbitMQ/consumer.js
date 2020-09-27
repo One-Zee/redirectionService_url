@@ -45,7 +45,8 @@ try{
     await channel.consume(queue, msg =>{                    // Consumes message from specif 'queue'.
         let url = JSON.parse(msg.content.toString());       // Parses the 'msg' sent from queue  that is converted 'to string' from 'buffer'.
        // console.log(url);
-        const hash = url[1].short_url.split('/')[3];  // Exctracting hash part of the 'short_url'
+        let url_arr = url[1].short_url.split('/');
+        const hash = url_arr[arr.length-1];  // Exctracting hash part of the 'short_url'
 
         if(url[0].create){ // Checks if it should create to or delete from db # Redis # 'create' returns boolean
             client.hmset(toArray(hash,url[1]),(err, reply) => {
