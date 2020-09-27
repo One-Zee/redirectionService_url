@@ -27,6 +27,8 @@ const client = require('./src/dbRedis/dbConnect');
 const limiter = rateLimit({
     windowMs:2 * 60 * 1000, // 2 minutes or 120 sec
     max: 10, // limit each # IP # to 10 requests per windowMs
+    message:
+    "Too many request from this IP, please try again after couple minutes"
   });
   
 
