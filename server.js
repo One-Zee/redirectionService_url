@@ -1,7 +1,10 @@
 /**
  * loading dependencies
  */
+const rateLimit = require('express-rate-limit');
 const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
 
 /**
  * loading config values
@@ -19,6 +22,15 @@ require('./src/rabbitMQ/consumer')();
 const client = require('./src/dbRedis/dbConnect');
 
 /**
+ * Config for limiter
+ */
+const limiter = rateLimit({
+    windowMs:2 * 60 * 1000, // 2 minutes or 120 sec
+    max: 10, // limit each # IP # to 10 requests per windowMs
+  });
+  
+
+/**
  * Initializing # express app #
  */
 const app = express();
@@ -26,7 +38,10 @@ const app = express();
 /**
  * Initialize middleware
  */
+app.use(helmet());
+app.use(cors());
 app.use(express.json());
+app.use(limiter);
 
 /**
  * Initializing # GET # request
