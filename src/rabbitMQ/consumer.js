@@ -56,7 +56,6 @@ try{
                         channel.ack(msg);
                         console.log('inserted into redis')
                         console.log('deleted from queue');
-                      //  console.log(reply);
                     }  
         });
         }else{
@@ -66,7 +65,6 @@ try{
                     }else{
                         channel.ack(msg);
                         console.log('deleted from queue and from redis');
-                       // console.log(reply);
                     }
             });
         }
@@ -79,5 +77,7 @@ try{
 }
 catch(err){
 console.log('error is ' + err);
-    }
+process.exit(1);    
+
+}
 }

@@ -3,7 +3,15 @@
  */
 const redis = require('redis');
 
-const client = redis.createClient(); // Creating redis # client #
+const config = require('../../config');
+
+
+const client = redis.createClient(  // Creating redis # client #
+  {
+     host:config.redis_host,
+     port:config.redis_port
+  }); 
+  
 
 /**
  * Checks the connection to 'redis'
