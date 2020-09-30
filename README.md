@@ -22,7 +22,7 @@ Development is running at `http://localhost:2222` by default.
 ## Docker
 
 To run both services with DOCKER checkout:
-- https://github.com/One-Zee/url_shortening
+- https://github.com/One-Zee/UrlShortening
 
 
 
