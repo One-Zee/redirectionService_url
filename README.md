@@ -29,13 +29,14 @@ To run both services with DOCKER checkout:
 
 Redirection service has one RESTful API route:
 
+- GET method
 - Redirect_route:
   - `http://localhost:2222/:hash`
-
-- GET method
-- `http://localhost:2222/routes/:hash`
+  
 - expects hash code in url params like shown bellow.
+
  - example of request url `http://localhost:2222/U80mNPgts`
+ 
  - response is redirection to long(real) url for example :
    - `https://www.nsoft.com/job-application/?job_id=7661`
   
