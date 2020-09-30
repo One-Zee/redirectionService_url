@@ -2,7 +2,7 @@
 
 ## Description
 
-Redirection Service is one the services that are used for URL Shortening , another service is Management : https://github.com/One-Zee/managmentService_url .The Redirection service will find real URL, based on hash part of the short URL and the user will be redirected to real URL. Redirection accepts information about short URLs through RabbitMQ. In the case of creating short URL on Management Service, the information will be stored in Redis on Redirection Service, while in the case of deleting short URL, the information will be deleted from Redis on Redirection Service.
+Redirection Service is one the services that are used for URL Shortening , another service is Management service: https://github.com/One-Zee/managmentService_url .The Redirection service will find real URL, based on hash part of the short URL and the user will be redirected to real URL. Redirection accepts information about short URLs through RabbitMQ. In the case of creating short URL on Management Service, the information will be stored in Redis on Redirection Service, while in the case of deleting short URL, the information will be deleted from Redis on Redirection Service.
 
 
 ## Installation
