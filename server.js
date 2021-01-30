@@ -19,7 +19,11 @@ require('./src/rabbitMQ/consumer')();
  * loading client # redis #
  */
 const client = require('./src/dbRedis/dbConnect');
-  
+
+
+
+const { exp ,ifExists ,checkIf} = require('./redirect');
+ 
 
 /**
  * Initializing # express app #
@@ -33,23 +37,11 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+
 /**
  * Initializing # GET # request
  */
-app.get('/:hash',(req,res)=>{
-    const { hash } = req.params;
-    
-    client.hgetall(hash, function (err, obj) {
-        console.dir(obj);
-        if(err)
-        res.status(401).end('err: '+ err);
-        else if(obj != null)
-        res.status(302).redirect(obj.real_url);
-        else
-        res.status(404).end();
-        
-    })
-});
+app.get('/:hash', ifExists, checkIf, exp);
 /**
  * setting port
  */
